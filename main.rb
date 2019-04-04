@@ -82,12 +82,10 @@ module Enumerable
   end
 
   # Map
-  def my_map(proc = nil)
+  def my_map(&proc)
     res = []
     if proc
       my_each { |v| res.push(proc.call(v)) }
-    elsif block_given?
-      my_each { |v| res.push(yield(v)) }
     else
       return to_enum(__method__)
     end
@@ -169,7 +167,7 @@ end
 # print [1,2,4,3,5,8,9].my_map(Proc.new { |v| v * 3 })
 # print ({a: "Fabien", v: "1.0", l: "Ruby"}.my_map.first(2))
 # print ({a: "Fabien", v: "1.0", l: "Ruby"}.my_map { |k, v| [k.to_s.to_sym, v * 3] })
-# print ({a: "Fabien", v: "1.0", l: "Ruby"}.my_map(Proc.new { |k, v| v }))
+# print ({a: "Fabien", v: "1.0", l: "Ruby"}.my_map(&Proc.new { |k, v| v }))
 
 # puts [2,5,6].my_inject(:multiply_els)
 # puts [2,5,6].my_inject(4, :multiply_els)
