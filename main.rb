@@ -134,42 +134,42 @@ class Hash
 end
 
 # [1,2,2,3,5,8,9].my_each {|i| puts i}
-# [ :a, "Fabien", :v, "1.0", :l, "Ruby"].my_each {|k| puts "#{k}"}
+# {a: "Fabien", v: "1.0", l: "Ruby"}.my_each {|k| puts "#{k}"}
 
 # [1,2,2,3,5,8,9].my_each_with_index {|v, i| puts "#{v} at index #{i}"}
-# [ :a, "Fabien", :v, "1.0", :l, "Ruby"].my_each_with_index {|k, v, i| puts "#{k}: #{v} at index #{i}"}
+# {a: "Fabien", v: "1.0", l: "Ruby"}.my_each_with_index {|k, v, i| puts "#{k}: #{v} at index #{i}"}
 
 # print [1,2,2,3,5,8,9].my_select { |v| v.odd? }
-# print [ "author", "Fabien", :v, "1.0", :l, "Ruby", :rate, 5].my_select { |k, v| v.is_a? Integer }
+# print ({"author" => "Fabien", v: "1.0", l: "Ruby", rate: 5}.my_select { |k, v| v.is_a? Integer })
 
 # print [1,2,2,3,5,8,9].my_all? { |v| v % 3 == 0 }
 # print [1,2,2,3,5,8,9].my_all?(/\D/)
-# print [ :a, "Fabien", :v, "1.0", :l, "Ruby"].my_all? { |k, v| v.is_a? Integer }
-# print [ :a, "Fabien", :v, "1.0", :l, "Ruby"].my_all?(/\d/)
+# print ({a: "Fabien", v: "1.0", l: "Ruby"}.my_all? { |k, v| v.is_a? Integer })
+# print ({a: "Fabien", v: "1.0", l: "Ruby"}.my_all?(/\d/))
 
 # print [nil, false].my_any?
 # print [1,2,nil,3,5,8,9].my_any? { |v| v || v == nil }
 # print [1,2,4,3,5,8,9].my_any?(/\d/)
-# print [ :a, "Fabien", :v, "1.0", :l, "Ruby"].my_any?
-# print [ :a, "Fabien", :v, "1.0", :l, "Ruby"].my_any? { |k, v| v.length > 3 }
+# print ({a: "Fabien", v: "1.0", l: "Ruby"}.my_any?)
+# print ({a: "Fabien", v: "1.0", l: "Ruby"}.my_any? { |k, v| v.length > 3 })
 
 # print [nil, false].my_none?
 # print [1,2,nil,3,5,8,9].my_none? { |v| v && v > 10 }
 # print [1,2,4,3,5,8,9].my_none?(/\D/)
 # print [].my_none?
-# print [ :a, "Fabien", :v, "1.0", :l, "Ruby"].my_none? { |k, v| v.length < 3 }
+# print ({a: "Fabien", v: "1.0", l: "Ruby"}.my_none? { |k, v| v == "Fabien" })
 
 # print [1,2,4,3,5,8,9].my_count
-# print [1,2,2,3,5,8,9].my_count(2)
+# print [1,2,2,3,5,8,9].my_count(0)
 # print [1,2,3,3,7,8,9].my_count{|v| v < 6}
-# print [ :a, "Fabien", :v, "1.0", :l, "Ruby"].my_count
+# print ({a: "Fabien", v: "1.0", l: "Ruby"}.my_count)
 
 # print [1,2,4,3,5,8,9].my_map.first(5)
 # print [1,2,4,3,5,8,9].my_map { |v| v * 2 }
 # print [1,2,4,3,5,8,9].my_map(Proc.new { |v| v * 3 })
-# print [ :a, "Fabien", :v, "1.0", :l, "Ruby"].my_map.first(2)
-# print [ :a, "Fabien", :v, "1.0", :l, "Ruby"].my_map { |k, v| [k.to_s.to_sym, v * 3] }
-# print [ :a, "Fabien", :v, "1.0", :l, "Ruby"].my_map(Proc.new { |k, v| v })
+# print ({a: "Fabien", v: "1.0", l: "Ruby"}.my_map.first(2))
+# print ({a: "Fabien", v: "1.0", l: "Ruby"}.my_map { |k, v| [k.to_s.to_sym, v * 3] })
+# print ({a: "Fabien", v: "1.0", l: "Ruby"}.my_map(Proc.new { |k, v| v }))
 
 # puts [2,5,6].my_inject(:multiply_els)
 # puts [2,5,6].my_inject(4, :multiply_els)
