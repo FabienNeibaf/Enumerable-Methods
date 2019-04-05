@@ -123,14 +123,6 @@ end
 
 # TESTS
 
-class Array
-  include Enumerable
-end
-
-class Hash
-  include Enumerable
-end
-
 # [1,2,2,3,5,8,9].my_each {|i| puts i}
 # {a: "Fabien", v: "1.0", l: "Ruby"}.my_each {|k| puts "#{k}"}
 
