@@ -80,7 +80,7 @@ module Enumerable
   end
 
   # Map
-  def my_map(&proc)
+  def my_map
     res = []
     return to_enum(__method__) unless block_given?
 
