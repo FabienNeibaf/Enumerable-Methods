@@ -8,12 +8,12 @@ RSpec.describe Enumerable do
   end
 
   it 'returns an array of elements fulfilling the condition in a block' do
-    res = [1, 2, 3, 4].my_select { |v| v.odd? }
+    res = [1, 2, 3, 4].my_select(&:odd?)
     expect(res).to eql([1, 3])
   end
 
   it 'returns an array of returned elements from a block' do
-    res = [1, 2, 3, 4].my_map { |v| v.odd? }
+    res = [1, 2, 3, 4].my_map(&:odd?)
     expect(res).to eql([true, false, true, false])
   end
 
